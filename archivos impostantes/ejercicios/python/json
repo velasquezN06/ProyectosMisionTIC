@@ -1,0 +1,11 @@
+import json
+
+dic= {"1":"lapiz",
+    "2":"borrador",
+    "3":"cuaderno",
+    "4":"lapicero"}
+
+with open("diccionario.json","w") as archivo:
+    json.dump(dic,archivo)
+
+archivo.close()

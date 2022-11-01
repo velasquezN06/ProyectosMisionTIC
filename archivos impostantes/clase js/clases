@@ -1,0 +1,56 @@
+class VentaTiquetes{
+  constructor(){
+    this.clientes = [];
+    this.reserva =[];
+    this.pelicula =[];
+  }
+  guardarPelicula(codigo,tiquetes,silla,pelicula){
+    this.pelicula[codigo]={codigo,tiquetes,silla,pelicula}
+}
+  consultarPelicula(codigo){
+    return this.pelicula[codigo];
+  }
+  consultarCodigo(codigo){
+    return this.pelicula[codigo];
+  }
+  registrarCliente(id,nombre,apellidos,edad){
+    this.clientes[id]={id,nombre,apellidos,edad}
+  }
+  consultarClienteId(id){
+    return this.clientes[id];
+  }
+  reservarPelicula(idCliente,codigoPelicula){
+    const cliente = this.consultarClienteId(idCliente)
+    const pelicula =this.consultarPelicula(codigoPelicula)
+    
+    this.reserva[idCliente] = {
+      cliente:cliente.id,
+      codiPelicula:pelicula.codigo,
+      tiquetes:pelicula.tiquetes,
+      silla:pelicula.silla,
+      pelic:pelicula.pelicula,
+      hora_func:new Date() 
+    }
+       
+  }
+  consultarReserva(){
+    return this.reserva
+  }
+	}
+const ventatiquetes = new VentaTiquetes
+
+ventatiquetes.guardarPelicula('111',2,'12,13',"sherk")
+ventatiquetes.guardarPelicula('112',3,'12,13,14',"sherk")
+
+ventatiquetes.registrarCliente(1234,"nolberto","velasquez",'18')
+ventatiquetes.registrarCliente(1235,"nolberto","velasquez",'18')
+
+ventatiquetes.reservarPelicula(1235,'112')
+ventatiquetes.reservarPelicula(1234,'111')
+
+ventatiquetes.consultarReserva(1234,'111')
+
+
+
+
+
